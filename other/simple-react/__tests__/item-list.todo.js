@@ -41,3 +41,22 @@ test.skip('I submitted my elaboration and feedback', () => {
   expect(submitted).toBe(true)
 })
 ////////////////////////////////
+import ReactDOM from 'react-dom'
+import React from 'react'
+import ItemList from '../item-list'
+
+test('Should display no items when empty list', () => {
+  const container = document.createElement('div')
+
+  ReactDOM.render(<ItemList items={[]} />, container)
+
+  expect(container.textContent).toMatch('no items')
+})
+
+test('Should render item list', () => {
+  const container = document.createElement('div')
+
+  ReactDOM.render(<ItemList items={['apple', 'orange', 'pear']} />, container)
+
+  expect(container.textContent).toBe('appleorangepear')
+})
