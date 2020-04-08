@@ -6,7 +6,7 @@ function Login({onSubmit}) {
   return (
     <div>
       <Form
-        onSubmit={e => {
+        onSubmit={(e) => {
           e.preventDefault()
           const {username, password} = e.target.elements
           onSubmit({
